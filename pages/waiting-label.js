@@ -10,7 +10,7 @@ function HomePage() {
   useEffect(() => {
     const interval = setInterval(async () => {
       const res = await fetch(
-        "https://cz6q2hn36m.execute-api.us-east-1.amazonaws.com/production/packing/status/94971db8-cd65-4f92-8b0e-8962d78af2ce"
+        "https://cz6q2hn36m.execute-api.us-east-1.amazonaws.com/production/packing/overhead-station-1/status/94971db8-cd65-4f92-8b0e-8962d78af2ce"
       )
       const { data } = await res.json()
       console.log(data)

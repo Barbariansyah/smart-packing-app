@@ -8,18 +8,18 @@ const ItemList = (props) => {
   const [listData, setListData] = useState(props.items)
   const router = useRouter()
 
-  // useEffect(() => {
-  //   const interval = setInterval(async () => {
-  //     const res = await fetch(
-  //       "https://cz6q2hn36m.execute-api.us-east-1.amazonaws.com/production/packing/status/94971db8-cd65-4f92-8b0e-8962d78af2ce"
-  //     )
-  //     const { data } = await res.json()
-  //     console.log(data)
-  //     setListData((listData) => [...listData, ...data.full_list])
-  //     console.log(listData)
-  //   }, 5000)
-  //   return () => clearInterval(interval)
-  // }, [])
+  useEffect(() => {
+    const interval = setInterval(async () => {
+      const res = await fetch(
+        "https://cz6q2hn36m.execute-api.us-east-1.amazonaws.com/production/packing/overhead-station-1/status/94971db8-cd65-4f92-8b0e-8962d78af2ce"
+      )
+      const { data } = await res.json()
+      console.log(data)
+      setListData((listData) => [...data.remaining_list])
+      console.log(listData)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [])
 
   useEffect(() => {
     if (listData.length == 0) {
