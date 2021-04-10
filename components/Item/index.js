@@ -5,7 +5,7 @@ const Item = () => {
     <tr>
       <td className="px-2 py-4">
         <div className="flex-shrink-0 h-20 w-20 mx-auto">
-          <img className="h-20 w-20" src="https://picsum.photos/200/300" alt="" />
+          <img className="h-20 w-20" src="/placeholder/lays.jpeg" alt="" />
         </div>
       </td>
       <td className="px-2 py-4 whitespace-nowrap">

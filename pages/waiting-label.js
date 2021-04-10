@@ -6,7 +6,7 @@ function HomePage() {
   return (
     <div class="container h-screen flex items-center bg-gray-900">
       <h2 class="text-center text-3xl px-2 my-auto mx-auto font-semibold text-green-300">
-        Scan Packaging Label
+        Please Scan Packaging Label
       </h2>
     </div>
   )
