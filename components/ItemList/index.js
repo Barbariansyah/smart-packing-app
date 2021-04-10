@@ -1,7 +1,27 @@
 import "tailwindcss/tailwind.css"
 import Item from "../Item"
+import React, { useState, useEffect } from "react"
 
-const ItemList = () => {
+const ItemList = (props) => {
+  const [listData, setListData] = useState([])
+
+  useEffect(() => {
+    const interval = setInterval(async () => {
+      const res = await fetch(
+        "https://cz6q2hn36m.execute-api.us-east-1.amazonaws.com/production/packing/status/94971db8-cd65-4f92-8b0e-8962d78af2ce"
+      )
+      const { data } = await res.json()
+      console.log(data)
+      setListData((listData) => [...listData, ...data.full_list])
+      console.log(listData)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [])
+
+  const ItemComponent = listData.map((item) => (
+    <Item img={item.item_image_url} name={item.item_name} />
+  ))
+
   return (
     <div className="flex flex-col">
       <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -25,10 +45,7 @@ const ItemList = () => {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                <Item />
-                <Item />
-                <Item />
-                <Item />
+                {ItemComponent}
               </tbody>
             </table>
           </div>
