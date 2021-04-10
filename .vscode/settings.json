@@ -1,0 +1,8 @@
+{
+  "eslint.validate": ["javascript", "javascriptreact"],
+  "eslint.options": {
+    "configFile": ".eslintrc"
+  },
+  "prettier.configPath": ".prettierrc",
+  "editor.formatOnSave": true
+}
