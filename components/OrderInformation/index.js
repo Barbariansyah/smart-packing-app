@@ -1,6 +1,7 @@
 import "tailwindcss/tailwind.css"
 
-const OrderInformation = () => {
+const OrderInformation = (props) => {
+  const { itemRemaining } = props
   return (
     <div class="bg-gray-800 shadow overflow-hidden sm:rounded-lg">
       <div class="px-4 py-5 sm:px-6">
@@ -18,7 +19,9 @@ const OrderInformation = () => {
           </div>
           <div class="bg-gray-800 px-4 py-5 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
             <dt class="text-medium font-medium text-gray-100">Item Left to Pack</dt>
-            <dd class="mt-1 text-sm text-gray-50 sm:mt-0 sm:col-span-2">4</dd>
+            <dd class="mt-1 text-sm text-gray-50 sm:mt-0 sm:col-span-2">
+              {itemRemaining}
+            </dd>
           </div>
         </dl>
       </div>
